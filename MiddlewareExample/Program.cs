@@ -3,6 +3,8 @@ using MiddlewareExample;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseMiddleware<RequestTimingMiddleware>();
+// Use the custom middleware via the extension method
+app.UseExceptionHandlingMiddleware();
 
 app.Run(async (HttpContext context) => {
     await context.Response.WriteAsync("Hello Manash");
